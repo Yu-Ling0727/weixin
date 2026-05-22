@@ -1,17 +1,34 @@
-import easygui as sg
+import turtle
 
-# 信息弹窗
-sg.msgbox("这是一个提示消息")
+# 设置画笔
+t = turtle.Turtle()
+t.speed(3)
+t.color('red', 'pink')  # 线条颜色和填充颜色
+turtle.bgcolor('white')
 
-# 确认弹窗
-if sg.ynbox("是否继续？", choices=["是", "否"]):
-    print("用户点击是")
-else:
-    print("用户点击否")
+# 开始绘制爱心
+t.penup()
+t.goto(0, -100)  # 调整起点位置
+t.pendown()
 
-# 输入弹窗
-name = sg.enterbox("请输入你的名字")
-if name == "王楦博":
-    print(f"{name},你好，傻逼")
-else:
-    print(f'你好,{name}')
+t.begin_fill()  # 开始填充
+
+# 画左半边的曲线
+t.left(140)
+t.forward(224)
+for _ in range(200):
+    t.right(1)
+    t.forward(2)
+
+# 画右半边的曲线
+t.left(120)
+for _ in range(200):
+    t.right(1)
+    t.forward(2)
+
+t.forward(224)
+t.end_fill()
+
+# 完成
+t.hideturtle()
+turtle.done()
